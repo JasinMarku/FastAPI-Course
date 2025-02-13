@@ -1,2 +1,16 @@
-# FastAPI-Course
-This repository contains all projects and exercises completed during my FastAPI course. It includes API development with FastAPI, database integration with MySQL &amp; PostgreSQL, authentication with JWT, unit &amp; integration testing with PyTest, full-stack integration using Jinja2 templates, and deployment strategies. 
+# FastAPI ToDo Application 🚀
+A full-stack **ToDo application** built with **FastAPI**, **PostgreSQL**, and **Jinja2 templates**. This project demonstrates **user authentication, CRUD operations, and full deployment using Render**.
+
+## 🛠 Tech Stack
+- **Backend**: FastAPI, SQLAlchemy, PostgreSQL
+- **Frontend**: Jinja2 Templates, Bootstrap
+- **Authentication**: OAuth2 with JWT Tokens
+- **Deployment**: Render (Web Service + PostgreSQL Database)
+
+## 📌 Features
+- **User Registration & Authentication** 🔐  
+- **Create, Read, Update, and Delete (CRUD) ToDo Items** ✅  
+- **Admin Panel for Managing Users & ToDos** 🛠  
+- **Styled Frontend with Bootstrap** 🎨  
+- **Database Persistence with PostgreSQL** 🗄  
+- **Fully Deployed on Render** 🌍  
