@@ -4,8 +4,7 @@ from sqlalchemy.orm import declarative_base
 
 # Define the database URL
 # MySQL URL
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:test1234!@127.0.0.1:3306/TodoApplicationDatabase"
-
+SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://fastapi_todo_db_owvq_user:B3wG9HCPImPw8gjsXd5AHBNOAE0KYdu2@dpg-cun6mj3tq21c73edghe0-a/fastapi_todo_db_owvq"
 # Create the engine
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
