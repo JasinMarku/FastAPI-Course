@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -169,3 +170,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+=======
+.idea/
+test.db
+__pycache__/
+.env
+fastapienv/
+*.pyc
+.DS_Store
+>>>>>>> a460841 (Initial commit - FastAPI Course ToDo Project)
