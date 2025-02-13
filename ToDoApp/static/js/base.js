@@ -39,53 +39,50 @@
         });
     }
 
-    // Edit Todo Form Handler
 const editTodoForm = document.getElementById('editTodoForm');
 if (editTodoForm) {
-    // Edit form submit handler
     editTodoForm.addEventListener('submit', async function (event) {
         event.preventDefault();
-        // ... rest of your existing edit form code ...
+
+        const formData = new FormData(editTodoForm);
+        const data = Object.fromEntries(formData.entries());
+
+        const payload = {
+            title: data.title,
+            description: data.description,
+            priority: parseInt(data.priority),
+            complete: data.complete === 'on' // Convert checkbox value to boolean
+        };
+
+        const url = window.location.pathname;
+        const todoId = url.split('/').pop(); // Get the todo ID from the URL
+
+        try {
+            const token = getCookie('access_token');
+            if (!token) {
+                throw new Error('Authentication token not found');
+            }
+
+            const response = await fetch(`/todos/todo/${todoId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                window.location.href = '/todos/todo-page'; // Redirect after update
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.detail}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
     });
-
-    // Delete button
-    const deleteButton = document.getElementById('deleteButton');
-    if (deleteButton) {
-        deleteButton.addEventListener('click', async function (event) {
-            event.preventDefault(); // Prevent form submission
-
-            if (!confirm('Are you sure you want to delete this todo?')) {
-                return;
-            }
-
-            const url = window.location.pathname;
-            const todoId = url.split('/').pop();
-
-            try {
-                const token = getCookie('access_token');
-                if (!token) {
-                    throw new Error('Authentication token not found');
-                }
-
-                const response = await fetch(`/todos/todo/${todoId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-
-                if (response.status === 204) { // Success, no content
-                    window.location.href = '/todos/todo-page';
-                } else {
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    }
 }
 
     // Login JS
