@@ -1,7 +1,9 @@
 # FastAPI ToDo Application 🚀
 A full-stack **ToDo application** built with **FastAPI**, **PostgreSQL**, and **Jinja2 templates**. This project demonstrates **user authentication, CRUD operations, and full deployment using Render**.
 
-⚠ **Note:** This project is deployed on **Render’s free tier**, which may cause **initial load delays** due to automatic spin-down after inactivity.
+## Preventing Idle Shutdown on Render
+This project is deployed on Render's free tier, which automatically shuts down the service after inactivity. 
+To prevent this, a cron job is used to periodically send requests to the backend, ensuring quick response times.
 
 ## 🛠 Tech Stack
 - **Backend**: FastAPI, SQLAlchemy, PostgreSQL
